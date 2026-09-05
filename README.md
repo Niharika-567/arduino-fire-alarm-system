@@ -15,7 +15,7 @@ An automated safety and early-warning system designed to monitor ambient tempera
 
 ## 🛠️ Components Used
 * **Microcontroller:** Arduino Uno R3
-* **Sensors:** TMP36 Temperature Sensor, Gas Sensor 
+* **Sensors:** TMP36 Temperature Sensor, Gas Sensor MQ-2
 * **Output Actuators:** Piezo Buzzer, Red LED with Resistors
 * **Prototyping:** Small Breadboard and jumper wires
 
