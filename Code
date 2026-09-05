@@ -1,0 +1,46 @@
+// C++ code
+// Fire Alert System using Arduino UNO
+// TMP36 Temperature Sensor + Gas Sensor + LED + Piezo
+const int gasPin = A0;
+const int tempPin = A1;
+const int ledPin = 13;
+const int piezoPin = 7;
+// Fire detection thresholds
+const int gasThreshold = 300;
+const float tempThreshold = 50.0;
+void setup() {
+pinMode(gasPin, INPUT);
+pinMode(tempPin, INPUT);
+pinMode(ledPin, OUTPUT);
+pinMode(piezoPin, OUTPUT);
+Serial.begin(9600);
+digitalWrite(ledPin, LOW);
+digitalWrite(piezoPin, LOW);
+}
+void loop() {
+// Read gas sensor
+int gasValue = analogRead(gasPin);
+// Read TMP36
+int tempRaw = analogRead(tempPin);
+// Convert analog value to voltage
+float voltage = tempRaw * (5.0 / 1023.0);
+// TMP36 conversion
+float temperature = (voltage - 0.5) * 100.0;
+// Display readings
+Serial.print("Temperature: ");
+Serial.print(temperature);
+Serial.print(" C");
+Serial.print(" Gas: ");
+Serial.println(gasValue);
+// Fire detection
+if (temperature >= tempThreshold || gasValue >= gasThreshold) {
+digitalWrite(ledPin, HIGH);
+tone(piezoPin, 1000);
+Serial.println("!!! FIRE ALERT !!!");
+}
+else {
+digitalWrite(ledPin, LOW);
+noTone(piezoPin);
+}
+delay(500);
+}
