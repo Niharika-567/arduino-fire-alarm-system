@@ -1,7 +1,7 @@
 # arduino-fire-alarm-system
 # 🔥 IoT-Based Fire Alarm System
 
-An automated safety and early-warning system designed to monitor ambient temperature and hazardous gases in real-time using an Arduino Uno microcontroller[cite: 1].
+An automated safety and early-warning system designed to monitor ambient temperature and hazardous gases in real-time using an Arduino Uno microcontroller.
 
 ---
 
